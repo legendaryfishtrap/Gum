@@ -1,7 +1,9 @@
 ﻿using Gum.DataTypes;
 using Gum.Managers;
 using Gum.Wireframe;
+using GumFormsSample.CustomRuntimes;
 using GumRuntime;
+using Microsoft.Xna.Framework.Input;
 using MonoGameGum.Forms;
 using MonoGameGum.Forms.Controls;
 using MonoGameGum.Forms.DefaultFromFileVisuals;
@@ -18,6 +20,8 @@ namespace GumFormsSample.Screens;
 internal class FromFileDemoScreen
 {
     GraphicalUiElement _root;
+    ToastRuntime _popup;
+
     public void Initialize(ref GraphicalUiElement root)
     {
 
@@ -27,6 +31,11 @@ internal class FromFileDemoScreen
         FormsUtilities.RegisterFromFileFormRuntimeDefaults();
 
         FileManager.RelativeDirectory = "Content/FormsGumProject/";
+
+        ElementSaveExtensions.RegisterGueInstantiationType(
+            "Controls/Toast",
+            typeof(ToastRuntime)
+        );
 
         // This assumes that your project has at least 1 screen
 
@@ -39,6 +48,27 @@ internal class FromFileDemoScreen
         PopulateComboBox();
 
         InitializeRadioButtons();
+
+        var interactable = (InteractiveGue)_root.GetGraphicalUiElementByName("PopupContainer");
+        interactable.RollOff += RemovePopup;
+        interactable.RollOn += AddPopup;
+    }
+
+    private void AddPopup(object sender, EventArgs e)
+    {
+        _popup = new ToastRuntime(true, false);
+        var state = Mouse.GetState();
+        _popup.X = state.X + 16;
+        _popup.Y = state.Y + 16;
+
+        FrameworkElement.ModalRoot.Children.Add( _popup );
+    }
+
+    private void RemovePopup(object sender, EventArgs e)
+    {
+        _popup.RemoveFromManagers();
+        _popup.Parent = null;
+        _popup = null;
     }
 
     private void PopulateComboBox()

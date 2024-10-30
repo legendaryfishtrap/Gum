@@ -358,6 +358,29 @@
         "EventType": 7,
         "TimestampUtc": "2024-10-30T11:06:57.0828725Z"
       }
+    ],
+    "Nick": [
+      {
+        "NewName": "DemoScreenGum.ContainerInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2024-10-30T21:20:54.2674986Z"
+      },
+      {
+        "NewName": "DemoScreenGum.PopupContainer",
+        "OldName": "DemoScreenGum.ContainerInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2024-10-30T21:21:00.2720618Z"
+      },
+      {
+        "NewName": "DemoScreenGum.ColoredRectangleInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2024-10-30T21:21:08.6663399Z"
+      }
     ]
   }
 }
