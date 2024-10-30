@@ -1780,6 +1780,30 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>ScrollViewerInstance.Height</Name>
+      <Value xsi:type="xsd:float">174</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ScrollViewerInstance.Width</Name>
+      <Value xsi:type="xsd:float">402</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ScrollViewerInstance.X</Name>
+      <Value xsi:type="xsd:float">18</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ScrollViewerInstance.Y</Name>
+      <Value xsi:type="xsd:float">576</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>ShowDialogButton.ButtonDisplayText</Name>
       <Value xsi:type="xsd:string">Show Dialog Box</Value>
@@ -2689,6 +2713,11 @@
   <Instance>
     <Name>DialogBoxInstance</Name>
     <BaseType>Controls/DialogBox</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>ScrollViewerInstance</Name>
+    <BaseType>Controls/ScrollViewer</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />

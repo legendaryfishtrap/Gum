@@ -358,6 +358,15 @@
         "EventType": 7,
         "TimestampUtc": "2024-10-30T11:06:57.0828725Z"
       }
+    ],
+    "Nick": [
+      {
+        "NewName": "DemoScreenGum.ScrollViewerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2024-10-30T17:49:19.344051Z"
+      }
     ]
   }
 }

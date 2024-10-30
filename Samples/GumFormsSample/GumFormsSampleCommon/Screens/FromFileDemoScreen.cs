@@ -1,10 +1,14 @@
 ﻿using Gum.DataTypes;
 using Gum.Managers;
 using Gum.Wireframe;
+using GumFormsSample.CustomRuntimes;
 using GumRuntime;
+using Microsoft.Xna.Framework;
 using MonoGameGum.Forms;
 using MonoGameGum.Forms.Controls;
 using MonoGameGum.Forms.DefaultFromFileVisuals;
+using MonoGameGum.Forms.DefaultVisuals;
+using MonoGameGum.GueDeriving;
 using RenderingLibrary;
 using System;
 using System.Collections.Generic;
@@ -29,6 +33,10 @@ internal class FromFileDemoScreen
         FileManager.RelativeDirectory = "Content/FormsGumProject/";
 
         // This assumes that your project has at least 1 screen
+        ElementSaveExtensions.RegisterGueInstantiationType(
+            "Controls/ScrollViewer",
+            typeof(CustomScrollViewer)
+        );
 
         _root = gumProject.Screens.Find(item => item.Name == "DemoScreenGum").ToGraphicalUiElement(
             SystemManagers.Default, addToManagers: true);
@@ -39,6 +47,30 @@ internal class FromFileDemoScreen
         PopulateComboBox();
 
         InitializeRadioButtons();
+
+        PopulateScrollViewer();
+    }
+
+    private void PopulateScrollViewer()
+    {
+        var scrollViewer = (CustomScrollViewer)_root.GetGraphicalUiElementByName("ScrollViewerInstance");
+        var scrollViewerForms = scrollViewer.FormsControlAsObject as ScrollViewer;
+
+        scrollViewerForms.InnerPanel.Children.Clear();
+        scrollViewerForms.InnerPanel.ChildrenLayout = ChildrenLayout.LeftToRightStack;
+
+        var random = new System.Random();
+        for (int i = 0; i < 30; i++)
+        {
+            var innerRectangle = new ColoredRectangleRuntime();
+            innerRectangle.X = 0;
+            innerRectangle.Y = 0;
+            innerRectangle.Width = 50;
+            innerRectangle.Height = 50;
+            innerRectangle.Color = new Color(random.Next(255), random.Next(255), random.Next(255));
+
+            scrollViewerForms.InnerPanel.Children.Add(innerRectangle);
+        }
     }
 
     private void PopulateComboBox()

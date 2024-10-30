@@ -113,8 +113,8 @@ public partial class WeaponListBoxItemRuntime : InteractiveGue
 
             element.SetGraphicalUiElement(this, SystemManagers.Default);
         }
-
     }
+
     public override void AfterFullCreation()
     {
         Background = this.GetGraphicalUiElementByName("Background") as NineSliceRuntime;
@@ -129,6 +129,4 @@ public partial class WeaponListBoxItemRuntime : InteractiveGue
             FormsControlAsObject = new WeaponListBoxItem(this);
         }
     }
-
-
 }
